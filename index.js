@@ -1994,7 +1994,7 @@ bot.action(/extract_yes_(.+)/, async (ctx) => {
         const fileBuffer = Buffer.from(liveCookiesResults.join('\n'), 'utf8');
         await ctx.replyWithDocument(
             { source: fileBuffer, filename: 'EXTRACTED_COOKIES.txt' },
-            { caption: `🍪 <b>Berhasil Ekstrak: ${liveCookiesResults.length} Cookies</b>\n❌ <b>Gagal/Expired: ${deadLinksResults.length} Link</b>\n\nSilahkan gunakan mode fitur convert cookies to link ke bot @netflixcookieess_bot agar akun disortir oleh bot.`, parse_mode: 'HTML' }
+            { caption: `🍪 <b>Berhasil Ekstrak: ${liveCookiesResults.length} Cookies</b>\n❌ <b>Gagal/Expired: ${deadLinksResults.length} Link</b>\n\nSilahkan gunakan mode fitur convert cookies to link ke bot @convertcookiesbot agar akun disortir oleh bot.`, parse_mode: 'HTML' }
         );
     } else {
         await ctx.reply(`❌ <b>Semua link gagal diekstrak atau sudah expired.</b>`, { parse_mode: 'HTML' });
