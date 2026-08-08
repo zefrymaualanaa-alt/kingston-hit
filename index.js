@@ -820,7 +820,7 @@ bot.start(async (ctx) => {
     const welcomeText = 
         `<b>[ KINGSTON ENTERPRISE - CONTROL PANEL ]</b>\n` +
         `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n` +
-        `English🇬🇧:\n<i>welcome to bot for hit netflix crack automatically, developed by @agastrastore. Please utilize this utility responsibly and adhere to system regulations to prevent stability issues.</i>\n\nIndoensian🇮🇩\n<i>Selamat datang di bot untuk mendapatkan crack Netflix secara otomatis, yang dikembangkan oleh @agastrastore. Harap gunakan utilitas ini secara bertanggung jawab dan patuhi peraturan sistem untuk mencegah masalah stabilitas..</i>\n\n` +
+        `English🇬🇧:\n<i>welcome to bot for hit netflix crack automatically, developed by @DominatingC. Please utilize this utility responsibly and adhere to system regulations to prevent stability issues.</i>\n\nIndoensian🇮🇩\n<i>Selamat datang di bot untuk mendapatkan crack Netflix secara otomatis, yang dikembangkan oleh @DominatingC. Harap gunakan utilitas ini secara bertanggung jawab dan patuhi peraturan sistem untuk mencegah masalah stabilitas..</i>\n\n` +
         `<blockquote>` +
         `<b>System Status  :</b> <code>Online & Operational</code>\n` +
         `<b>Access Level   :</b> <code>Authorized vip User</code>\n` +
