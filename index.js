@@ -19,7 +19,7 @@ const hitCache = new Map(); // 🌟 CACHE SEMENTARA UNTUK HASIL LINK DARI /HIT
 const USER_DB_FILE = 'users.json'; 
 const PEMBELI_DB_FILE = 'pembeli.json'; 
 const OWNER_ID = 8626857035; 
-const REQUIRED_CHANNEL = '@ByRhett'; 
+const REQUIRED_CHANNEL = '@ByRhett';
 
 // --- SETTING KANAL ARSIP OWNER ---
 const LOG_CHANNEL_ID = '-1004431346293'; 
@@ -221,7 +221,7 @@ function showWelcomeBanner() {
  █─── █▀█ █▀▀▀ █─── █▀▄ █▀▀▀ █▄▄▀ 
  ▀▀▀▀ ▀─▀ ▀▀▀▀ ▀▀▀▀ ▀─▀ ▀▀▀▀ ▀─▀▀ 
  ───────────────────────────────────${reset}`);
-    console.log(`${cyan}${bold} WELCOME OWNER KINGSTON STORE - WINDOWS LOCAL SYSTEM${reset}`);
+    console.log(`${cyan}${bold} WELCOME OWNER AGASTRA STORE - WINDOWS LOCAL SYSTEM${reset}`);
     console.log(`${cyan}${bold}==================================================${reset}`);
     console.log(`${gray}[${new Date().toLocaleTimeString()}]${reset} Core system status: ${green}PREPARED (CMD MODE)${reset}`);
     console.log(`${gray}[${new Date().toLocaleTimeString()}]${reset} Connection: Secure Bypass Token Enabled`);
@@ -250,7 +250,7 @@ function logToPanel(type, data) {
         console.log(`${magenta}${bold}│${reset} 📧 Account  : ${data.email}`);
         console.log(`${magenta}${bold}│${reset} 🌍 Country  : ${data.country} | 🌐 Lang: ${data.language}`);
         console.log(`${magenta}${bold}│${reset} ⚡ Speed    : ${green}${data.duration} detik${reset}`);
-        console.log(`${magenta}${bold}└── [KINGSTON LOG TRACKER SYSTEM] ──────────────────────────┘${reset}\n`);
+        console.log(`${magenta}${bold}└── [AGASTRA LOG TRACKER SYSTEM] ──────────────────────────┘${reset}\n`);
     } else if (type === 'BULK') {
         console.log(`${cyan}${bold}┌── [BULK VERIFICATION MASSAL] ────────────────────────────┐${reset}`);
         console.log(`${cyan}${bold}│${reset} ⏰ Time     : ${time}`);
@@ -258,7 +258,7 @@ function logToPanel(type, data) {
         console.log(`${cyan}${bold}│${reset} 📦 Database : ${yellow}${data.fileName}${reset}`);
         console.log(`${cyan}${bold}│${reset} 📊 Total DB : ${data.total} Cookies`);
         console.log(`${cyan}${bold}│${reset} 🟢 Result   : ${green}${data.live} LIVE${reset} | 🔴 ${data.dead} DEAD`);
-        console.log(`${cyan}${bold}└── [KINGSTON LOG TRACKER SYSTEM] ──────────────────────────┘${reset}\n`);
+        console.log(`${cyan}${bold}└── [AGASTRA LOG TRACKER SYSTEM] ──────────────────────────┘${reset}\n`);
     }
 }
 
@@ -818,7 +818,7 @@ bot.start(async (ctx) => {
     const formattedDate = new Date().toLocaleDateString('id-ID', options);
 
     const welcomeText = 
-        `<b>[ KINGSTON ENTERPRISE - CONTROL PANEL ]</b>\n` +
+        `<b>[ AGASTRA ENTERPRISE - CONTROL PANEL ]</b>\n` +
         `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n` +
         `English🇬🇧:\n<i>welcome to bot for hit netflix crack automatically, developed by @DominatingC. Please utilize this utility responsibly and adhere to system regulations to prevent stability issues.</i>\n\nIndoensian🇮🇩\n<i>Selamat datang di bot untuk mendapatkan crack Netflix secara otomatis, yang dikembangkan oleh @DominatingC. Harap gunakan utilitas ini secara bertanggung jawab dan patuhi peraturan sistem untuk mencegah masalah stabilitas..</i>\n\n` +
         `<blockquote>` +
@@ -831,9 +831,9 @@ bot.start(async (ctx) => {
     ctx.reply(welcomeText, { parse_mode: 'HTML' });
 });
 
-bot.command('xxxxxx', async (ctx) => {
+bot.command('xxxxx', async (ctx) => {
     if (ctx.from.id !== OWNER_ID) {
-        return ctx.reply("❌ *Akses Ditolak! Perintah ini khusus Owner Agastra Store.*", { parse_mode: 'Markdown' });
+        return ctx.reply("❌ *Akses Ditolak! Perintah ini khusus Owner KINGSTON Store.*", { parse_mode: 'Markdown' });
     }
     const statusBackupMsg = await ctx.reply("📦 `Sedang mencadangkan seluruh sistem panel secara menyeluruh...`", { parse_mode: 'Markdown' });
     try {
@@ -941,15 +941,18 @@ bot.command('ceklimit', async (ctx) => {
             context = await globalBrowser.newContext();
             page = await context.newPage();
             
-            // Login ke Kxntu
-            await page.goto('https://kxntu.com/login', { waitUntil: 'networkidle', timeout: 30000 });
+            // Login ke Kxntu (FIX TERBARU)
+            await page.goto('https://kxntu.com/login', { waitUntil: 'domcontentloaded', timeout: 60000 });
+            await page.waitForTimeout(2000);
             await page.fill('#l-username', acc.username);
             await page.fill('#l-password', acc.password);
             await page.click('button[type="submit"].btn-primary');
-            await page.waitForLoadState('networkidle', { timeout: 30000 });
+            await page.waitForLoadState('domcontentloaded', { timeout: 60000 });
+            await page.waitForTimeout(2000);
 
-            // Menuju halaman generar
-            await page.goto('https://kxntu.com/generar', { waitUntil: 'networkidle', timeout: 30000 });
+            // Menuju halaman generar (FIX TERBARU)
+            await page.goto('https://kxntu.com/generar', { waitUntil: 'domcontentloaded', timeout: 60000 });
+            await page.waitForTimeout(2000);
             
             // 4. Proses Scrape Label Limit
             // Mengekstrak semua kotak info yang ada di Kxntu
@@ -990,16 +993,20 @@ bot.command('ceklimit', async (ctx) => {
 // ==========================================================
 // 🌟 COMMAND HIT DENGAN SISTEM SMART QUEUE / WAITING LIST
 // ==========================================================
-// ==========================================================
-// 🌟 COMMAND HIT DENGAN SISTEM SMART QUEUE / WAITING LIST
-// ==========================================================
 bot.command('hit', async (ctx) => {
     const currentUserId = ctx.from.id.toString();
     const isOwner = currentUserId === OWNER_ID.toString();
     
     const users = loadUsers();
     const userRecord = users.find(u => u.id.toString() === currentUserId);
-    const isVip = userRecord ? userRecord.isVip === true : false;
+    
+    // Cek apakah VIP masih aktif (jika ada masa berlakunya)
+    let isVip = false;
+    if (userRecord && userRecord.isVip === true) {
+        if (!userRecord.vipExpiredAt || new Date() < new Date(userRecord.vipExpiredAt)) {
+            isVip = true;
+        }
+    }
 
     if (!isOwner && !isVip) {
         return ctx.reply('❌ *Akses Ditolak:*\nCommand ini khusus Owner dan user VIP.', { parse_mode: 'Markdown' });
@@ -1014,7 +1021,7 @@ bot.command('hit', async (ctx) => {
     // 👉 BARIS INI PENTING (Mendefinisikan targetTotal)
     let targetTotal = parseInt(args[1]);
 
-    // 👉 BATASAN MAKSIMAL 20 UNTUK SEMUA ORANG (TERMASUK OWNER)
+    // 👉 BATASAN MAKSIMAL 50 UNTUK SEMUA ORANG (TERMASUK OWNER)
     if (targetTotal === 0 || targetTotal > 50) {
         targetTotal = 50;
         ctx.reply('⚠️ *INFO SISTEM:*\nPermintaan disesuaikan menjadi maksimal *50 link* per eksekusi untuk menjaga performa bot.', { parse_mode: 'Markdown' });
@@ -1046,11 +1053,8 @@ bot.command('hit', async (ctx) => {
     } else {
         processNextHit();
     }
-}); // <--- PENUTUP COMMAND (Sekaligus memperbaiki error awal)
+}); 
 
-// ==========================================================
-// 🌟 FUNGSI PEKERJA ANTREAN (BERJALAN OTOMATIS)
-// ==========================================================
 // ==========================================================
 // 🌟 FUNGSI PEKERJA ANTREAN (FULL FIX & OPTIMIZED)
 // ==========================================================
@@ -1103,9 +1107,17 @@ async function processNextHit() {
         let processedAccountsCount = 0;
         let akunDicoba = 0;
 
-        if (!globalBrowser) await startGlobalBrowser(); 
+        // ⚡ AUTO-REVIVE BROWSER: Cek apakah browser masih nyala, kalau mati/crash, nyalain lagi!
+        if (!globalBrowser || !globalBrowser.isConnected()) {
+            console.log("⚠️ Browser terdeteksi mati! Merestart global browser...");
+            await startGlobalBrowser();
+        }
         
         while (akunDicoba < accounts.length) {
+            // 👉 TARUH PENGECEKAN JUGA DI DALAM LOOP (Jaga-jaga mati di tengah jalan)
+            if (!globalBrowser || !globalBrowser.isConnected()) {
+                await startGlobalBrowser();
+            }
             if (targetTotal > 0 && allResults.length >= targetTotal) break;
 
             const account = accounts[globalAccountIndex];
@@ -1133,13 +1145,17 @@ async function processNextHit() {
                 context = await globalBrowser.newContext();
                 page = await context.newPage();
 
-                await page.goto('https://kxntu.com/login', { waitUntil: 'networkidle' });
+                // FIX TERBARU - Anti Spaming & Cloudflare Bypass Method
+                await page.goto('https://kxntu.com/login', { waitUntil: 'domcontentloaded', timeout: 60000 });
+                await page.waitForTimeout(2000); // Jeda extra biar form sempurna muncul
                 await page.fill('#l-username', account.username);
                 await page.fill('#l-password', account.password); 
                 await page.click('button[type="submit"].btn-primary');
-                await page.waitForLoadState('networkidle');
+                await page.waitForLoadState('domcontentloaded', { timeout: 60000 });
+                await page.waitForTimeout(2000);
 
-                await page.goto('https://kxntu.com/generar', { waitUntil: 'networkidle' });
+                await page.goto('https://kxntu.com/generar', { waitUntil: 'domcontentloaded', timeout: 60000 });
+                await page.waitForTimeout(2000);
 
                 let iterasiAkun = 0;
                 let consecutiveDuplicates = 0; // 🌟 PELACAK DUPLIKAT BERTURUT-TURUT (ANTI-STUCK)
@@ -1177,13 +1193,14 @@ async function processNextHit() {
 
                     const hasPartner = await checkPartnerGen(page);
                     if (hasPartner) {
-                        await page.waitForTimeout(1000);
+                        await page.waitForTimeout(800);
                         continue; 
                     }
 
-                    
+                    // ⚡ SPEED HACK: Mulai proses ekstrak cookie ke Netflix di BACKGROUND
+                    const cookiePromise = resolveLinkToCookie(link);
 
-                    // Ambil plan dan negara langsung dari elemen web kxntu.com/generar secara presisi
+                    // ⚡ SPEED HACK: Sambil nunggu server Netflix balas, bot ngerjain tugas baca Plan & Country
                     let hitCountry = 'Global / UN';
                     let hitPlan = 'Netflix Plan';
                     try {
@@ -1203,17 +1220,26 @@ async function processNextHit() {
                         }
                     } catch (e) {}
 
+                    // ⚡ SPEED HACK: Gabungkan delay wajib Kxntu (1 dtk) selagi proses axios berjalan biar gak dobel nunggu!
+                    await page.waitForTimeout(1000);
+
+                    // Cek hasil akhir dari proses ekstrak background tadi
+                    const activeCookie = await cookiePromise;
+                    if (!activeCookie) {
+                        // Jika mati, langsung lanjut generate link baru (gak ada delay tambahan lagi)
+                        continue; 
+                    }
+
                     allResults.push({ 
                         username: account.username, 
                         link: link, 
+                        cookie: activeCookie, 
                         country: hitCountry, 
                         plan: hitPlan 
                     });
                     
                     // Update progress angka untuk /cekantrian
                     currentTaskDetail.currentCount = allResults.length;
-
-                    await page.waitForTimeout(1000); 
                 } 
                 
                 processedAccountsCount++;
@@ -1270,39 +1296,40 @@ async function processNextHit() {
                 .map(([name, count]) => `${name} ${count}`)
                 .join(' | ');
 
-            const textContent = allResults.map(item => `${item.username}: ${item.link}`).join('\n');
+            // 👉 UBAH OUTPUT FILE: HANYA MENGANDUNG COOKIES AKTIF (TANPA USERNAME/LINK)
+            const textContent = allResults.map(item => item.cookie).join('\n');
             const fileBuffer = Buffer.from(textContent, 'utf8');
             
-            const hitId = crypto.randomBytes(4).toString('hex');
-            const onlyLinks = allResults.map(item => item.link);
-            hitCache.set(hitId, onlyLinks);
-            
-            setTimeout(() => hitCache.delete(hitId), 60 * 60 * 1000);
-
-            let inlineButtons = [
-                [Markup.button.callback('YES - Extract Cookies', `extract_yes_${hitId}`), Markup.button.callback('NO - Skip Action', `extract_no_${hitId}`)]
-            ];
+            // 👉 HAPUS FITUR TOMBOL EKSTRAK & CACHE KARENA SUDAH OTOMATIS
+            let inlineButtons = [];
 
             if (sisaTarget > 0) {
-                inlineButtons.push([Markup.button.callback(`🔄 Auto-Retry Sisa Target (${sisaTarget} Link)`, `retry_hit_${sisaTarget}`)]);
+                inlineButtons.push([Markup.button.callback(`🔄 Auto-Retry Sisa Target (${sisaTarget} Target)`, `retry_hit_${sisaTarget}`)]);
             }
 
+            // 1. Kirim Ringkasan sebagai Teks Biasa (Aman dari limit caption dokumen Telegram)
+            await ctx.reply(
+                `<b>[ KINGSTON ENTERPRISE - RESULT SUMMARY ]</b>\n` +
+                `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n` +
+                `<i>Harvested database results package summary report.</i>\n\n` +
+                `<blockquote>` +
+                `<b>Total Cookies Live :</b> <code>${allResults.length} Cookies Harvested</code>\n` +
+                `<b>Countries Hit   :</b> <code>${countriesSummary || 'Global / UN'}</code>\n` +
+                `<b>Plan Breakdown  :</b> <code>${plansSummary || 'Netflix Plan'}</code>\n` +
+                `<b>Package Status  :</b> <code>Secured & Verified Live</code>\n` +
+                `</blockquote>\n\n` +
+                `English 🇬🇧 :\n` +
+                `<i>Successfully hit cookies, if you want to tidy up the cookie format and check live/dead cookies, please forward this file to the bot @convertcookiesbot so that it can be automatically sorted.</i>\n\n` +
+                `Indonesian 🇮🇩 :\n` +
+                `<i>Berhasil hit cookies, jika ingin merapihkan format cookies dan cek cookies live/dead silahkan forward file ini ke bot @convertcookiesbot agar otomatis di sortir</i>`,
+                { parse_mode: 'HTML' }
+            );
+
+            // 2. Kirim Dokumennya dengan Caption Singkat + Tombol Interaktif
             await ctx.replyWithDocument(
-                { source: fileBuffer, filename: 'hasil_hit_netflix.txt' }, 
+                { source: fileBuffer, filename: 'hasil_hit_cookies_live.txt' }, 
                 { 
-                    caption: `<b>[ KINGSTON ENTERPRISE - RESULT SUMMARY ]</b>\n` +
-                             `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n` +
-                             `<i>Harvested database results package summary report.</i>\n\n` +
-                             `<blockquote>` +
-                             `<b>Total Valid Links :</b> <code>${allResults.length} Account Harvested</code>\n` +
-                             `<b>Countries Hit   :</b> <code>${countriesSummary || 'Global / UN'}</code>\n` +
-                             `<b>Plan Breakdown  :</b> <code>${plansSummary || 'Netflix Plan'}</code>\n` +
-                             `<b>Package Status  :</b> <code>Secured & Verified</code>\n` +
-                             `</blockquote>\n\n` +
-                             `English 🇬🇧 :\n` +
-                             `<i>Interactive Prompt: Would you like to execute deep extraction to convert these URLs into active session cookies?</i>\n\n` +
-                             `Indonesian 🇮🇩 :\n` +
-                             `<i>Prompt Interaktif: Apakah Anda ingin menjalankan ekstraksi mendalam untuk mengubah url ini menjadi cookie sesi aktif?</i>`,
+                    caption: `📁 <b>File Hasil Hit Cookies Live (${allResults.length} Akun)</b>`,
                     parse_mode: 'HTML',
                     ...Markup.inlineKeyboard(inlineButtons)
                 }
@@ -1321,7 +1348,7 @@ async function processNextHit() {
         await notifyOwnerError(ctx, "Sistem processNextHit (Global)", error);
         await ctx.reply(`❌ *Terjadi Kesalahan Kritis:*\n${error.message}`, { parse_mode: 'Markdown' });
     } finally {
-        // 🌟 RESET STATUS PADA KHIR PROSES SEBELUM MEMANGGIL TUGAS BERIKUTNYA
+        // 🌟 RESET STATUS PADA AKHIR PROSES SEBELUM MEMANGGIL TUGAS BERIKUTNYA
         isProcessingHit = false;
         currentTaskDetail = null;
 
@@ -1331,36 +1358,96 @@ async function processNextHit() {
         }
     }
 }
+
+// ==========================================================
+// 🌟 COMMAND /ADDVIP DENGAN DURASI (CONTOH: /addvip @user 30d ATAU lifetime)
+// ==========================================================
 bot.command('addvip', async (ctx) => {
-    // Pastikan cuma Owner yang bisa nambahin VIP
     if (ctx.from.id.toString() !== OWNER_ID.toString()) {
         return ctx.reply("❌ *Akses Ditolak! Perintah ini khusus Owner.*", { parse_mode: 'Markdown' });
     }
 
-    // Ambil argumen dari pesan (contoh: /addvip @Agastra)
     const args = ctx.message.text.split(' ');
-    if (args.length < 2) {
-        return ctx.reply("⚠️ *Format Salah!*\nGunakan: `/addvip @username` atau `/addvip ID_TELEGRAM`", { parse_mode: 'Markdown' });
+    if (args.length < 3) {
+        return ctx.reply("⚠️ *Format Salah!*\n\nGunakan format:\n`/addvip @username [durasi]`\n\n*Contoh Durasi:*\n• `30d` (30 Hari)\n• `2m` atau `2b` (2 Bulan)\n• `lifetime` (Selamanya)", { parse_mode: 'Markdown' });
     }
 
-    let target = args[1].replace('@', ''); // Hapus logo @ jika ada
-    let users = loadUsers();
+    let target = args[1].replace('@', ''); // Hapus '@'
+    let durationInput = args[2].toLowerCase();
     
-    // Cari user di database users.json berdasarkan username (mengabaikan huruf besar/kecil) atau berdasarkan ID Telegram
+    let users = loadUsers();
     let userIndex = users.findIndex(u => 
         (u.username && u.username.replace('@', '').toLowerCase() === target.toLowerCase()) || 
         u.id.toString() === target
     );
 
-    if (userIndex !== -1) {
-        // Tambahkan atribut isVip = true ke data user tersebut
-        users[userIndex].isVip = true;
-        fs.writeFileSync(USER_DB_FILE, JSON.stringify(users, null, 2));
-        
-        return ctx.reply(`✅ *BERHASIL!*\nUser 👤 ${users[userIndex].username} (ID: \`${users[userIndex].id}\`) telah ditambahkan sebagai *VIP (Lifetime)*.\n\nSekarang dia sudah punya akses untuk menggunakan fitur /hit.`, { parse_mode: 'Markdown' });
-    } else {
-        return ctx.reply(`❌ *User tidak ditemukan di database!*\nPastikan user tersebut sudah pernah klik /start di bot ini sebelumnya biar datanya terekam.`, { parse_mode: 'Markdown' });
+    if (userIndex === -1) {
+        return ctx.reply(`❌ *User tidak ditemukan di database!*\nPastikan user tersebut sudah pernah klik /start di bot ini sebelumnya.`, { parse_mode: 'Markdown' });
     }
+
+    let expiredDate = null;
+    let durationText = "";
+
+    if (durationInput === 'lifetime') {
+        expiredDate = null;
+        durationText = "Selamanya (Lifetime)";
+    } else {
+        let days = 0;
+        const matchDays = durationInput.match(/^(\d+)d$/);
+        const matchMonths = durationInput.match(/^(\d+)(m|b)$/);
+
+        if (matchDays) {
+            days = parseInt(matchDays[1]);
+        } else if (matchMonths) {
+            days = parseInt(matchMonths[1]) * 30;
+        } else {
+            return ctx.reply("⚠️ *Format durasi tidak valid!*\nGunakan format seperti `30d` untuk hari atau `2m` untuk bulan.", { parse_mode: 'Markdown' });
+        }
+
+        expiredDate = new Date();
+        expiredDate.setDate(expiredDate.getDate() + days);
+        durationText = expiredDate.toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' });
+    }
+
+    // Set Status VIP dan Tanggal Expired
+    users[userIndex].isVip = true;
+    users[userIndex].vipExpiredAt = expiredDate ? expiredDate.toISOString() : null;
+    fs.writeFileSync(USER_DB_FILE, JSON.stringify(users, null, 2));
+
+    ctx.reply(`✅ <b>BERHASIL MENAMBAHKAN VIP!</b>\n──────────────────────────\n👤 <b>User:</b> <code>${users[userIndex].username}</code>\n🆔 <b>ID:</b> <code>${users[userIndex].id}</code>\n⏳ <b>Masa Aktif VIP:</b> <b>${durationText}</b>`, { parse_mode: 'HTML' });
+});
+
+// ==========================================================
+// 🌟 COMMAND /DELVIP UNTUK MENGHAPUS STATUS VIP USER
+// ==========================================================
+bot.command('delvip', async (ctx) => {
+    if (ctx.from.id.toString() !== OWNER_ID.toString()) {
+        return ctx.reply("❌ *Akses Ditolak! Perintah ini khusus Owner.*", { parse_mode: 'Markdown' });
+    }
+
+    const args = ctx.message.text.split(' ');
+    if (args.length < 2) {
+        return ctx.reply("⚠️ *Format Salah!*\n\nGunakan format:\n`/delvip @username` atau `/delvip ID_TELEGRAM`", { parse_mode: 'Markdown' });
+    }
+
+    let target = args[1].replace('@', '');
+    let users = loadUsers();
+    
+    let userIndex = users.findIndex(u => 
+        (u.username && u.username.replace('@', '').toLowerCase() === target.toLowerCase()) || 
+        u.id.toString() === target
+    );
+
+    if (userIndex === -1) {
+        return ctx.reply(`❌ *User tidak ditemukan di database!*`, { parse_mode: 'Markdown' });
+    }
+
+    // Hapus status VIP
+    users[userIndex].isVip = false;
+    delete users[userIndex].vipExpiredAt;
+    fs.writeFileSync(USER_DB_FILE, JSON.stringify(users, null, 2));
+
+    ctx.reply(`✅ <b>BERHASIL MENCABUT STATUS VIP!</b>\n──────────────────────────\n👤 <b>User:</b> <code>${users[userIndex].username}</code>\n🆔 <b>ID:</b> <code>${users[userIndex].id}</code>\n❌ Status VIP telah dihapus dari sistem.`, { parse_mode: 'HTML' });
 });
 
 bot.command('bc', async (ctx) => {
@@ -1376,7 +1463,7 @@ bot.command('bc', async (ctx) => {
 });
 
 bot.command('catat', async (ctx) => {
-    if (ctx.from.id !== OWNER_ID) return ctx.reply("❌ *Akses Khusus Owner Agastra Store!*", { parse_mode: 'Markdown' });
+    if (ctx.from.id !== OWNER_ID) return ctx.reply("❌ *Akses Khusus Owner KINGSTON Store!*", { parse_mode: 'Markdown' });
     const args = ctx.message.text.substring(6).trim().split(/\s+/);
     if (args.length < 2) return ctx.reply("⚠️ <b>Format Salah!</b>\n\nGunakan:\n<code>/catat [ID/User/WA/Nama] [Durasi]</code>", { parse_mode: 'HTML' });
     const buyerInfo = args[0];
@@ -1397,7 +1484,7 @@ bot.command('catat', async (ctx) => {
 });
 
 bot.command('ownerbulk', async (ctx) => {
-    if (ctx.from.id !== OWNER_ID) return ctx.reply("❌ *Perintah ini eksklusif hanya untuk Owner Agastra Store!*", { parse_mode: 'Markdown' });
+    if (ctx.from.id !== OWNER_ID) return ctx.reply("❌ *Perintah ini eksklusif hanya untuk Owner KINGSTON Store!*", { parse_mode: 'Markdown' });
     ctx.reply("📥 <b>Mode Owner Bulk Aktif!</b>\nSilakan lampirkan/drop file berkas <code>.txt</code> atau <code>.zip</code> berisi data cookies tanpa batasan kuantitas maksimal.", { parse_mode: 'HTML' });
     bot.context.ownerBulkWaiting = true; 
 });
@@ -1507,7 +1594,7 @@ bot.on('text', async (ctx) => {
                 const resultText = `✅ successfully logged in and got account cookies!\n\n` +
                                    `📋 Detail Cookies:\n` +
                                    `<code>${buildCookieData}</code>\n\n` +
-                                   `Thank you for using this bot, don't forget to follow @agastrastore`;
+                                   `Thank you for using this bot, don't forget to follow @ByRhett`;
 
                 await ctx.telegram.editMessageText(ctx.chat.id, statusMsg.message_id, undefined, resultText, { parse_mode: 'HTML' }).catch(()=>{});
                 return;
@@ -1631,7 +1718,7 @@ bot.on('text', async (ctx) => {
     const jamCek = now.toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false, timeZone: 'Asia/Jakarta' });
 
     const cardLayout = 
-        `🚨 𝐒𝐔𝐂𝐂𝐄𝐒𝐒𝐅𝐔𝐋𝐋𝐘 𝐁𝐘𝐏𝐀𝐒𝐒𝐄𝐃 𝐍𝐄𝐓𝐅𝐋𝐈𝐗 𝐀𝐂𝐂𝐎𝐔𝐍𝐓, 𝐘𝐎𝐔registered_R 𝐍𝐄𝐓𝐅𝐋𝐈𝐗 𝐀𝐂𝐂𝐎𝐔𝐍𝐓 𝐃𝐄𝐓𝐀𝐈𝐋𝐒 𝐀𝐑𝐄 𝐁𝐄𝐋𝐎𝐖 :\n\n` +
+        `🚨 𝐒𝐔𝐂𝐂𝐄𝐒𝐒𝐅𝐔𝐋𝐋𝐘 𝐁𝐘𝐏𝐀𝐒𝐒𝐄𝐃 𝐍𝐄𝐓𝐅𝐋𝐈𝐗 𝐀𝐂𝐂𝐎𝐔𝐍𝐓, 𝐘𝐎𝐔𝐑 𝐍𝐄𝐓𝐅𝐋𝐈𝐗 𝐀𝐂𝐂𝐎𝐔𝐍𝐓 𝐃𝐄𝐓𝐀𝐈𝐋𝐒 𝐀𝐑𝐄 𝐁𝐄𝐋𝐎𝐖 :\n\n` +
         `<blockquote>` +
         `🟢 <b>Status:</b> ${finalAccStatus}\n` +
         `📩 <b>Email:</b> <code>${finalEmail}</code>\n` +
@@ -1650,7 +1737,7 @@ bot.on('text', async (ctx) => {
         `🕸️ Thank you for using this conversion bot 🕷️\n\n` +
         `"𝗔𝗡𝗡𝗢𝗨𝗡𝗖𝗘𝗠𝗘𝗡𝗧"\n` +
         `⛥ Rating pengerjaan bot ini untuk memberikan feedback kepada pengembang - bebas request fitur - pendapatmu berharga bagi kami.\n` +
-        `here : https://t.me/agastrastore/2153`;
+        ``;
 
     try {
         const logLayout = `📢 <b>NEW CONVERT LOG (SATUAN)</b>\n` +
@@ -1665,10 +1752,19 @@ bot.on('text', async (ctx) => {
 
     await ctx.telegram.deleteMessage(ctx.chat.id, msg.message_id).catch(() => {});
 
+    // 1. Kirim Foto dengan Caption Pendek (Aman dari limit batas Telegram)
     await ctx.replyWithPhoto('https://ibb.co.com/ymDYRmKF', {
-        caption: cardLayout,
+        caption: `🚨 <b>SUCCESSFULLY BYPASSED NETFLIX ACCOUNT</b>\n\n🟢 <b>Status:</b> ${finalAccStatus}\n📩 <b>Email:</b> <code>${finalEmail}</code>\n👑 <b>Plan:</b> ${finalPlan}\n🌍 <b>Country:</b> ${countryTextFormat}\n⚡ <b>Kecepatan:</b> ${duration} detik/cookie\n\n👇 <i>Detail lengkap akun dan tombol login ada di bawah ini:</i>`,
+        parse_mode: 'HTML'
+    });
+
+    // 2. Kirim Detail Lengkap Berserta Tombol Interaktif Secara Terpisah
+    await ctx.reply(cardLayout, {
         parse_mode: 'HTML',
-        ...Markup.inlineKeyboard([[Markup.button.callback('📱 MOBILE', `copy_app_${tokenId}`), Markup.button.callback('💻 PC', `copy_pc_${tokenId}`)], [Markup.button.callback('📺 TV ', `copy_tv_${tokenId}`)]])
+        ...Markup.inlineKeyboard([
+            [Markup.button.callback('📱 MOBILE', `copy_app_${tokenId}`), Markup.button.callback('💻 PC', `copy_pc_${tokenId}`)],
+            [Markup.button.callback('📺 TV ', `copy_tv_${tokenId}`)]
+        ])
     });
 });
 
@@ -1752,7 +1848,7 @@ bot.on('document', async (ctx) => {
                 addConvertScore(ctx.from.id, liveCookiesResults.length);
             }
 
-            // SIMPAN HASIL LINK TO COOKIES KE MEMORI SUPAYA BISA DUGUNAKAN COMMAND /satukan
+            // SIMPAN HASIL LINK TO COOKIES KE MEMORI SUPAYA BISA DIGUNAKAN COMMAND /satukan
             lastBulkResults.set(ctx.from.id, liveCookiesResults);
 
             const summaryText = `<b>📊 BULK CONVERT LINK TO COOKIES COMPLETED</b>\n─────────────────────\n🟢 <b>Berhasil Konversi:</b> ${liveCookiesResults.length} Cookies\n🔴 <b>Gagal/Expired:</b> ${deadLinksResults.length} Link\n📦 <b>Total Diproses:</b> ${linksToProcess.length}`;
